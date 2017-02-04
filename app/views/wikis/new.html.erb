@@ -1,7 +1,9 @@
-<%= form_for @wiki do, remote: true |f| %>
+
+
+<%= form_for @wiki do |f| %>
    <div class="form-group">
-     <%= f.label :body %>
-     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Description" %>
+     <%= f.label :WIKI %>
+     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Body" %>
    </div>
    <div class="form-group">
      <%= f.submit "Save", class: 'btn btn-success' %>

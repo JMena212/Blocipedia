@@ -1,2 +1,10 @@
-<h1>Wikis#index</h1>
-<%= link_to 'New Wiki', new_wiki_path %>
+ <h1>Wikis</h1>
+
+<div class="row">
+ <div class="col-md-8">
+   <%= link_to 'Add Wiki', new_task_path, id: "new_link", remote: true %>
+   <div class="wikis">
+    <%= render @wikis%>
+   </div>
+ </div>
+</div>
