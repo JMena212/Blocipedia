@@ -6,11 +6,8 @@ class WikisController < ApplicationController
   def create
     @wiki = current_user.wikis.new(wiki_params)
       if @wiki.save
-      respond_to do |format|
-         format.html {redirect_to root_path}
-         format.js
        flash[:notice] = "Wiki was saved successfully."
-      end
+       redirect_to root_path
       else
        flash.now[:alert] = "Error creating Wiki. Please try again."
        render :new
@@ -37,6 +34,7 @@ class WikisController < ApplicationController
   end
 
   def edit
+    @wiki = Wiki.find(params[:id])
   end
 
   def update
@@ -48,4 +46,10 @@ class WikisController < ApplicationController
     end
     redirect_to root_path
   end
+  
+  private
+  def wiki_params
+   params.require(:wiki).permit(:title, :body)
+  end
+  
 end

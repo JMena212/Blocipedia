@@ -2,9 +2,12 @@
 
 <div class="row">
  <div class="col-md-8">
-   <%= link_to 'Add Wiki', new_task_path, id: "new_link", remote: true %>
+   <%= link_to 'Add Wiki', new_wiki_path, id: "new_link" %>
    <div class="wikis">
-    <%= render @wikis%>
+   <% @wikis.each do |wiki| %>   
+       <div><%= link_to wiki.title, wiki %> </div>
+   <% end %>
+
    </div>
  </div>
 </div>
