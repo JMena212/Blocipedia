@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 #Pundit
 gem 'pundit'
+#Faker Seed data
+gem 'faker'
 #Bootstrap
 gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
