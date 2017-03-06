@@ -1,6 +1,7 @@
 class WikisController < ApplicationController
   def index
-     @wikis = current_user.wikis
+    # @wikis = current_user.wikis
+     @wikis = Wiki.visible_to(current_user)
   end
 
   def create
@@ -31,6 +32,10 @@ class WikisController < ApplicationController
 
   def show
      @wiki = Wiki.find(params[:id])
+      unless @wiki.public || current_user
+       flash[:alert] = "You must be signed in to view private wikis."
+       redirect_to root_path
+      end
   end
 
   def edit
