@@ -37,5 +37,12 @@ def new
    }
 end
 
+def destroy
+   if current_user.premium?
+      current_user.standard!
+      redirect_to edit_user_registration_path 
+   end
+end
+
 end
 
