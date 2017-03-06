@@ -32,10 +32,7 @@ class WikisController < ApplicationController
 
   def show
      @wiki = Wiki.find(params[:id])
-      unless @wiki.public || current_user
-       flash[:alert] = "You must be signed in to view private wikis."
-       redirect_to root_path
-      end
+     authorize(@wiki)
   end
 
   def edit

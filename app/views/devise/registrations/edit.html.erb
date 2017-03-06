@@ -40,11 +40,11 @@
 
 
 <br>
-<%= link_to "Back", :back %>
+<%= link_to "Back", wikis_path %>
 <br>
 
 <% if current_user.premium? %>
-   <%= link_to 'Downgrade Account', charge_path(@user), method: :delete, :class => 'btn btn-primary' %>
+   <%= link_to 'Downgrade Account', charge_path(@user), method: :delete, :class => 'btn btn-primary', data: { confirm: "Are you sure you want to downgrade?" } %>
    <% else %>
 <%= link_to 'Upgrade account', new_charge_path, :class => 'btn btn-primary' %>
 <%end %>

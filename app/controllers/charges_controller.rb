@@ -40,6 +40,8 @@ end
 def destroy
    if current_user.premium?
       current_user.standard!
+      current_user.wikis.where(private: true).update_all(private: false)
+      flash[:notice] = "You have downgraded your account"
       redirect_to edit_user_registration_path 
    end
 end
