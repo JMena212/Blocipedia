@@ -2,7 +2,7 @@
 
 
 <h1><%= @wiki.title %></h1>
-<p> <%= @wiki.body %> </p>
+<p><%= markdown(@wiki.body) %>  </p>
 <h4><%= link_to 'Edit Wiki', edit_wiki_path %> </h4>
 <h4><%= link_to 'Delete Wiki', wiki_path(@wiki), method: :delete %> </h4>
 <h4><%= link_to 'Back to Wiki Index', root_path %> </h4>
