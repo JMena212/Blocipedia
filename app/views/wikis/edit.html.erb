@@ -14,7 +14,7 @@
 
 <% @users.each do |user| %>
    <p> <%= user.email %> </p>
-   <% if @wiki.user.include?(user) %>
+   <% if @wiki.users.include?(user) %>
       <%= link_to 'Remove Collaborator', collaboration_path(user_id: user.id, wiki_id: @wiki.id), method: :delete, class: 'btn btn-warning'%>
    <% else %>
      <%= link_to 'Add Collaborator', collaborations_path(user_id: user.id, wiki_id: @wiki.id), method: :post, class: 'btn btn-success'%>
