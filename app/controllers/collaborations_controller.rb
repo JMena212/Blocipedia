@@ -1,8 +1,8 @@
 class CollaborationsController < ApplicationController
     def create
         u = User.find(params[:user_id])
-        w=  Wiki.find(params[:wiki_id])
-        c= Collaboration.new(user_id: u.id, wiki_id: w.id)
+        w =  Wiki.find(params[:wiki_id])
+        c = Collaboration.new(user_id: u.id, wiki_id: w.id)
         if c.save
             flash[:notice]= 'Collaboration added'
             redirect_to edit_wiki_path(w)

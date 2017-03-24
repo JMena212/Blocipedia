@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+$(document).on('turbolinks:load', function() {
+  var converter = new showdown.Converter();
+  $('#wiki_body').keyup(function(event) {
+    var mdown = $(this).val();
+    var html = converter.makeHtml(mdown);
+    $('#wiki-preview').html(html);
+  })
+})
