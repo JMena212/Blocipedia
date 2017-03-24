@@ -25,4 +25,4 @@ class CollaborationsController < ApplicationController
         end
     end
 
-end
+
