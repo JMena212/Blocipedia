@@ -18,6 +18,7 @@ class CollaborationsController < ApplicationController
         c = Collaboration.find_by(user_id: u.id, wiki_id: w.id)
         if c.destroy
             flash[:notice]= 'Collaborator removed'
+            flash[:notice] = 'Collaborator removed'
             redirect_to edit_wiki_path(w)
         else
             flash[:alert]= 'Failed to remove collaboration'
